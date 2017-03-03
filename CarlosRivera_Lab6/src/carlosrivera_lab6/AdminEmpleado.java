@@ -70,8 +70,8 @@ public class AdminEmpleado {
                 bw.write(empleados.getArbol_genealogico() + ";");
                 bw.write(empleados.getId() + ";");
                 bw.write(empleados.getSeccion_trabajo() + ";");
-            }
             bw.write(";");
+            }
             bw.flush();
         } catch (Exception e) {
         } finally {

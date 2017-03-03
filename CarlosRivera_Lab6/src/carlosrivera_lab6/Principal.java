@@ -89,11 +89,13 @@ public class Principal extends javax.swing.JFrame {
         jTree3 = new javax.swing.JTree();
         jButton7 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
+        agregar_familiares = new javax.swing.JDialog();
         jButton1 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -439,6 +441,17 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        javax.swing.GroupLayout agregar_familiaresLayout = new javax.swing.GroupLayout(agregar_familiares.getContentPane());
+        agregar_familiares.getContentPane().setLayout(agregar_familiaresLayout);
+        agregar_familiaresLayout.setHorizontalGroup(
+            agregar_familiaresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        agregar_familiaresLayout.setVerticalGroup(
+            agregar_familiaresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton1.setText("Agregar Persona");
@@ -449,12 +462,24 @@ public class Principal extends javax.swing.JFrame {
         });
 
         jButton8.setText("Agregar Familiar");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         jButton9.setText("Ventas");
 
         jButton10.setText("Ordenes");
 
         jButton11.setText("Reporte de Ganancias");
+
+        jButton12.setText("Abrir Arbol");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
 
         jMenu1.setText("Opciones");
 
@@ -468,6 +493,11 @@ public class Principal extends javax.swing.JFrame {
         jMenu1.add(jMenuItem3);
 
         jMenuItem4.setText("Salir");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem4);
 
         jMenuBar1.add(jMenu1);
@@ -480,21 +510,20 @@ public class Principal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(62, 62, 62)
-                .addComponent(jButton1)
-                .addGap(63, 63, 63)
-                .addComponent(jButton8)
-                .addContainerGap(67, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(80, 80, 80)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1)
+                    .addComponent(jButton9)
+                    .addComponent(jButton11))
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton11)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jButton12)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton10)
-                        .addGap(88, 88, 88))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton10)
+                            .addComponent(jButton8))
+                        .addContainerGap(67, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -508,7 +537,9 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(jButton9)
                     .addComponent(jButton10))
                 .addGap(56, 56, 56)
-                .addComponent(jButton11)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton11)
+                    .addComponent(jButton12))
                 .addContainerGap(71, Short.MAX_VALUE))
         );
 
@@ -522,6 +553,28 @@ public class Principal extends javax.swing.JFrame {
         this.Agregar_Persona.setLocationRelativeTo(this);
         this.Agregar_Persona.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        // TODO add your handling code here:
+        this.Arbol.setModal(true);
+        this.Arbol.pack();
+        this.Arbol.setLocationRelativeTo(this);
+        this.Arbol.setVisible(true);
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+        this.agregar_familiares.setModal(true);
+        this.agregar_familiares.pack();
+        this.agregar_familiares.setLocationRelativeTo(this);
+        this.agregar_familiares.setVisible(true);
+    }//GEN-LAST:event_jButton8ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -561,10 +614,12 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog Agregar_Persona;
     private javax.swing.JDialog Arbol;
+    private javax.swing.JDialog agregar_familiares;
     private javax.swing.JTree arbol_general;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;

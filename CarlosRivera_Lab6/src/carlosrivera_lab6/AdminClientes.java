@@ -67,8 +67,8 @@ public class AdminClientes {
                 bw.write(cliente.getColor_piel() + ";");
                 bw.write(cliente.getArbol_genealogico() + ";");
 
-            }
             bw.write(";");
+            }
             bw.flush();
         } catch (Exception e) {
         } finally {

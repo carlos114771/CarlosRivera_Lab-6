@@ -5,7 +5,6 @@
  */
 package carlosrivera_lab6;
 
-import java.awt.Color;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -16,21 +15,22 @@ import java.util.Scanner;
  *
  * @author Usuario Dell
  */
-public class AdminFamiliar {
+public class AdminOrdenes {
 
-    ArrayList<Familiares> listafamiliares = new ArrayList();
+    ArrayList<Ordenes> listaordenes = new ArrayList();
     File archivo = null;
 
-    public AdminFamiliar(String path) {
+    public AdminOrdenes(String path) {
         archivo = new File(path);
+
     }
 
-    public ArrayList<Familiares> getListafamiliares() {
-        return listafamiliares;
+    public ArrayList<Ordenes> getListaordenes() {
+        return listaordenes;
     }
 
-    public void setListafamiliares(ArrayList<Familiares> listafamiliares) {
-        this.listafamiliares = listafamiliares;
+    public void setListaordenes(ArrayList<Ordenes> listaordenes) {
+        this.listaordenes = listaordenes;
     }
 
     public File getArchivo() {
@@ -43,27 +43,22 @@ public class AdminFamiliar {
 
     @Override
     public String toString() {
-        return "listaCliente" + listafamiliares;
+        return "listaordenes" + listaordenes;
     }
 
-    public void setFamiliares(Familiares f) {
-        this.listafamiliares.add(f);
+    public void setOrdenes(Ordenes o) {
+        this.listaordenes.add(o);
     }
 
-    public void escribriArchivo() {
+    public void escribirArchivo() {
         FileWriter fw = null;
         BufferedWriter bw = null;
         try {
             fw = new FileWriter(archivo, false);
             bw = new BufferedWriter(fw);
-            for (Familiares familiares : listafamiliares) {
-                bw.write(familiares.getEdad() + ";");
-                bw.write(familiares.getId() + ";");
-                bw.write(familiares.getNacionalidad() + ";");
-                bw.write(familiares.getLugar_nacimiento() + ";");
-                bw.write(familiares.getNombre() + ";");
-                bw.write(familiares.getColor_piel() + ";");
-                bw.write(familiares.getPadre() + ";");
+            for (Ordenes orden : listaordenes) {
+                bw.write(orden.getCantidad() + ";");
+                bw.write(orden.getEmpleado() + ";");
                 bw.write(";");
             }
             bw.flush();
@@ -79,21 +74,17 @@ public class AdminFamiliar {
 
     public void cargarArchivo() {
         Scanner sc = null;
-        listafamiliares = new ArrayList();
+        listaordenes = new ArrayList();
+
         try {
             sc = new Scanner(archivo);
             sc.useDelimiter(";");
             while (sc.hasNext()) {
-                listafamiliares.add(new Familiares(sc.nextInt(), sc.nextInt(),
-                        sc.next(), sc.next(), sc.next(), Color.black, null));
+                listaordenes.add(new Ordenes(sc.nextInt(), null));
             }
         } catch (Exception e) {
         } finally {
-            try {
-                sc.close();
-            } catch (Exception e) {
-            }
+            sc.close();
         }
-
     }
 }
