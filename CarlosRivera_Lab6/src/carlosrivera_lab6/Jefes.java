@@ -8,6 +8,7 @@ package carlosrivera_lab6;
 import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
@@ -24,13 +25,16 @@ public class Jefes extends Persona {
         super();
     }
 
-    public Jefes(String seccion_trabajo, int clientes_atendidos, double ganacias, int edad, int id, String nacionalidad, String lugar_nacimiento, String nombre, Color color_piel, DefaultMutableTreeNode arbol_genealogico) {
+    public Jefes(String seccion_trabajo, int clientes_atendidos, double ganacias,
+            int edad, int id, String nacionalidad, String lugar_nacimiento,
+            String nombre, Color color_piel, DefaultTreeModel arbol_genealogico) {
         super(edad, id, nacionalidad, lugar_nacimiento, nombre, color_piel, arbol_genealogico);
         this.seccion_trabajo = seccion_trabajo;
         this.clientes_atendidos = clientes_atendidos;
         this.ganacias = ganacias;
     }
 
+ 
    
 
     public String getSeccion_trabajo() {

@@ -7,7 +7,7 @@ package carlosrivera_lab6;
 
 import java.awt.Color;
 import java.util.ArrayList;
-import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
@@ -21,20 +21,21 @@ public class Persona {
     String lugar_nacimiento;
     String nombre;
     Color color_piel;
-    DefaultMutableTreeNode arbol_genealogico;
+    DefaultTreeModel arbol_genealogico;
     ArrayList<Familiares> lista_familiar = new ArrayList();
 
     public Persona() {
     }
 
-    public Persona(int edad, int id, String nacionalidad, String lugar_nacimiento, String nombre, Color color_piel, DefaultMutableTreeNode arbol_genealogico) {
+    public Persona(int edad, int id, String nacionalidad, String lugar_nacimiento, 
+            String nombre, Color color_piel, DefaultTreeModel arbol_genealogico) {
         this.edad = edad;
         this.id = id;
         this.nacionalidad = nacionalidad;
         this.lugar_nacimiento = lugar_nacimiento;
         this.nombre = nombre;
         this.color_piel = color_piel;
-        this.arbol_genealogico = arbol_genealogico;
+        this.arbol_genealogico=this.arbol_genealogico;
     }
 
    
@@ -87,11 +88,11 @@ public class Persona {
         this.color_piel = color_piel;
     }
 
-    public DefaultMutableTreeNode getArbol_genealogico() {
+    public DefaultTreeModel getArbol_genealogico() {
         return arbol_genealogico;
     }
 
-    public void setArbol_genealogico(DefaultMutableTreeNode arbol_genealogico) {
+    public void setArbol_genealogico(DefaultTreeModel arbol_genealogico) {
         this.arbol_genealogico = arbol_genealogico;
     }
 

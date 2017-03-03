@@ -10,13 +10,16 @@ package carlosrivera_lab6;
  * @author Usuario Dell
  */
 public class Ordenes {
+
     int cantidad;
+    Empleado empleado;
 
     public Ordenes() {
     }
 
-    public Ordenes(int cantidad) {
+    public Ordenes(int cantidad, Empleado empleado) {
         this.cantidad = cantidad;
+        this.empleado = empleado;
     }
 
     public int getCantidad() {
@@ -27,9 +30,17 @@ public class Ordenes {
         this.cantidad = cantidad;
     }
 
+    public Empleado getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
+    }
+
     @Override
     public String toString() {
-        return "Ordenes{" + "cantidad=" + cantidad + '}';
+        return "Ordenes{" + "cantidad=" + cantidad + ", empleado=" + empleado + '}';
     }
-    
+
 }

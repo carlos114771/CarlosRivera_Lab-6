@@ -15,6 +15,11 @@ public class Principal extends javax.swing.JFrame {
     /** Creates new form Principal */
     public Principal() {
         initComponents();
+        this.Arbol.setModal(true);
+        this.Arbol.pack();
+        this.Arbol.setLocationRelativeTo(this);
+        this.Arbol.setVisible(true);
+        
     }
 
     /** This method is called from within the constructor to
@@ -26,17 +31,75 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Arbol = new javax.swing.JDialog();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        arbol_general = new javax.swing.JTree();
+        jButton1 = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Raiz");
+        arbol_general.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane1.setViewportView(arbol_general);
+
+        javax.swing.GroupLayout ArbolLayout = new javax.swing.GroupLayout(Arbol.getContentPane());
+        Arbol.getContentPane().setLayout(ArbolLayout);
+        ArbolLayout.setHorizontalGroup(
+            ArbolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ArbolLayout.createSequentialGroup()
+                .addGap(93, 93, 93)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(112, Short.MAX_VALUE))
+        );
+        ArbolLayout.setVerticalGroup(
+            ArbolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ArbolLayout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(65, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jButton1.setText("Agregar");
+
+        jMenu1.setText("Opciones");
+
+        jMenuItem1.setText("Guradar");
+        jMenu1.add(jMenuItem1);
+
+        jMenuItem2.setText("Guardar Como");
+        jMenu1.add(jMenuItem2);
+
+        jMenuItem3.setText("About");
+        jMenu1.add(jMenuItem3);
+
+        jMenuItem4.setText("Salir");
+        jMenu1.add(jMenuItem4);
+
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(62, 62, 62)
+                .addComponent(jButton1)
+                .addContainerGap(305, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addComponent(jButton1)
+                .addContainerGap(236, Short.MAX_VALUE))
         );
 
         pack();
@@ -78,6 +141,16 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDialog Arbol;
+    private javax.swing.JTree arbol_general;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 
 }
