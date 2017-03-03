@@ -21,6 +21,7 @@ public class Persona {
     String lugar_nacimiento;
     String nombre;
     Color color_piel;
+    
     DefaultTreeModel arbol_genealogico;
     ArrayList<Familiares> lista_familiar = new ArrayList();
 
