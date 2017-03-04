@@ -1228,10 +1228,14 @@ public class Principal extends javax.swing.JFrame {
         AdminEmpleado ae = new AdminEmpleado("./empleados.txt");
         if (ae.getArchivo().exists()) {
             ae.cargarArchivo();
-            ae.setEmpleado(new Empleado(seccion_trabajo, hora_entrado,
-                    hora_salida, sueldo, estado, edad, id, nacionalidad,
-                    lugar_nacimiento, nombre, color_piel, null));
         }
+        ae.setEmpleado(new Empleado((String) seccion_empleado.getSelectedItem(),
+                entrada_empleado.getText(), salida_empleado.getText(),
+                Double.parseDouble(sueldo_empleado.getText()),
+                (String) estado_empleado.getSelectedItem(),
+                (Integer) edad_empleado.getValue(),
+                Integer.parseInt(id_empleado.getText()), (String) nacionalidad_empleado.getSelectedItem(),
+                lugar_empleado.getText(), nombre_empleado.getText(), bt_color_empleado.getBackground(), null));
         ae.escribirArchivo();
 
     }//GEN-LAST:event_guardar_empleadoActionPerformed
@@ -1241,9 +1245,12 @@ public class Principal extends javax.swing.JFrame {
         AdminClientes ac = new AdminClientes("./clientes.txt");
         if (ac.getArchivo().exists()) {
             ac.cargarArchivo();
-            ac.setClientes(new Cliente(ticket, dinero, edad, id,
-                    nacionalidad, lugar_nacimiento, nombre, color_piel, null));
         }
+        ac.setClientes(new Cliente(Integer.parseInt(ticket_cliente.getText()),
+                Double.parseDouble(dinero_cliente.getText()), (Integer) edad_cliente.getValue(), Integer.parseInt(id_cliente.getText()),
+                (String) nacionalidad_cliente.getSelectedItem(),
+                lugar_cliente.getText(), nombre_cliente.getText(), bt_color_cliente.getBackground(), null));
+
         ac.escribirArchivo();
     }//GEN-LAST:event_guardar_clienteActionPerformed
 
@@ -1252,8 +1259,14 @@ public class Principal extends javax.swing.JFrame {
         AdminJefe aj = new AdminJefe("./jefe.txt");
         if (aj.getArchivo().exists()) {
             aj.getArchivo();
-            aj.setJefes(new Jefes(seccion_trabajo, clientes_atendidos, ganacias, edad, id, nacionalidad, lugar_nacimiento, nombre, color_piel, null));
         }
+        aj.setJefes(new Jefes((String) seccion_jefe.getSelectedItem(),
+                Integer.parseInt(cliente_jefe.getText()),
+                Double.parseDouble(ganancias_jefe.getText()),
+                (Integer) edad_jefe.getValue(), Integer.parseInt(id_jefe.getText()),
+                (String) nacionalidad_jefe.getSelectedItem(), lugar_jefe.getText(),
+                nombre_jefe.getText(), bt_color_jefe.getBackground(), null));
+
         aj.escribirArchivo();
     }//GEN-LAST:event_guardar_jefesActionPerformed
 
@@ -1262,8 +1275,10 @@ public class Principal extends javax.swing.JFrame {
         AdminFamiliar af = new AdminFamiliar("./familiares.txt");
         if (af.getArchivo().exists()) {
             af.getArchivo();
-            af.setFamiliares(new Familiares(edad, id, nacionalidad, lugar_nacimiento, nombre, color_piel, new Familiares()));
         }
+        af.setFamiliares(new Familiares((Integer) edad_familiar.getValue(),
+                Integer.parseInt(id_familiar.getText()), (String) nacionalidad_familiar.getSelectedItem(),
+                lugar_familiar.getText(), nombre_familiar.getText(), bt_color_familiar.getBackground(), new Familiares()));
         af.escribriArchivo();
     }//GEN-LAST:event_guardar_familiaresActionPerformed
 
@@ -1272,8 +1287,11 @@ public class Principal extends javax.swing.JFrame {
         AdminGatos ag = new AdminGatos("./gatos.txt");
         if (ag.getArchivo().exists()) {
             ag.cargarArchivo();
-            ag.setGato(new Gato(peso, altura, precio));
         }
+        ag.setGato(new Gato(Double.parseDouble(
+                peso_gato.getText()),
+                Double.parseDouble(altura_gato.getText()),
+                Double.parseDouble(precio_gato.getText())));
         ag.escribirArchivo();
     }//GEN-LAST:event_guardar_gatosActionPerformed
 
@@ -1282,8 +1300,8 @@ public class Principal extends javax.swing.JFrame {
         AdminBaleadas ab = new AdminBaleadas("./baleadas.txt");
         if (ab.getArchivo().exists()) {
             ab.cargarArchivo();
-            ab.setBaleada(new Baleadas(precio));
         }
+        ab.setBaleada(new Baleadas(Double.parseDouble(precio_baleadas.getText())));
         ab.escribirArchivo();
     }//GEN-LAST:event_guardar_baleadasActionPerformed
 
@@ -1292,8 +1310,8 @@ public class Principal extends javax.swing.JFrame {
         AdminOrdenes ao = new AdminOrdenes("./ordenes.txt");
 
         if (ao.getArchivo().exists()) {
-            ao.cargarArchivo();
         }
+        ao.cargarArchivo();
         ao.escribirArchivo();
     }//GEN-LAST:event_guardar_ordenesActionPerformed
 

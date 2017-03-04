@@ -1,0 +1,1 @@
+6445;4353.0;2;98765;Hondureño;thtjfgxd;nose;java.awt.Color[r=0,g=0,b=0];null;;3;6543.0;4;8765;Hondureño;dasd;ariel;DerivedColor(color=214,217,223 parent=control offsets=0.0,0.0,0.0,0 pColor=214,217,223;null;;
