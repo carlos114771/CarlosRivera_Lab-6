@@ -131,6 +131,8 @@ public class Principal extends javax.swing.JFrame {
         jTextField11 = new javax.swing.JTextField();
         jButton13 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
+        menu_popup = new javax.swing.JPopupMenu();
+        Modificar = new javax.swing.JMenuItem();
         jButton1 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
@@ -153,6 +155,11 @@ public class Principal extends javax.swing.JFrame {
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Raiz");
         arbol_general.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        arbol_general.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                arbol_generalMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(arbol_general);
 
         javax.swing.GroupLayout ArbolLayout = new javax.swing.GroupLayout(Arbol.getContentPane());
@@ -696,6 +703,14 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(35, 35, 35))
         );
 
+        Modificar.setText("Modificar");
+        Modificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ModificarActionPerformed(evt);
+            }
+        });
+        menu_popup.add(Modificar);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton1.setText("Agregar Persona");
@@ -1035,6 +1050,35 @@ public class Principal extends javax.swing.JFrame {
         ao.escribirArchivo();
     }//GEN-LAST:event_guardar_ordenesActionPerformed
 
+    private void arbol_generalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arbol_generalMouseClicked
+        // TODO add your handling code here:
+        if (evt.isMetaDown()) {
+            int row = arbol_general.getClosestRowForLocation(evt.getX(), evt.getY());
+            arbol_general.setSelectionRow(row);
+             Object v1 = arbol_general.getSelectionPath().getLastPathComponent();
+            nodo_selecionado = (DefaultMutableTreeNode) v1;
+            if (nodo_selecionado.getUserObject() instanceof Persona) {
+                persona_seleccionado = (Persona) nodo_selecionado.getUserObject();
+                menu_popup.show(evt.getComponent(), evt.getX(), evt.getY());
+
+            }
+        }
+
+    }//GEN-LAST:event_arbol_generalMouseClicked
+
+    private void ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarActionPerformed
+        // TODO add your handling code here:
+        nombre = JOptionPane.showInputDialog("Ingrese el nombre ");
+        persona_seleccionado.setNombre(nombre);
+        familiar_seleccionado.setNombre(nombre);
+        edad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la edad "));
+        persona_seleccionado.setEdad(edad);
+        familiar_seleccionado.setEdad(edad);
+        id = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la id "));
+        persona_seleccionado.getId();
+        familiar_seleccionado.getId();
+    }//GEN-LAST:event_ModificarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1073,6 +1117,7 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog Agregar_Persona;
     private javax.swing.JDialog Arbol;
+    private javax.swing.JMenuItem Modificar;
     private javax.swing.JButton agregar_cliente;
     private javax.swing.JDialog agregar_familiares;
     private javax.swing.JTree arbol_empleado;
@@ -1171,6 +1216,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField lugar_cliente;
     private javax.swing.JTextField lugar_empleado;
     private javax.swing.JTextField lugar_jefe;
+    private javax.swing.JPopupMenu menu_popup;
     private javax.swing.JComboBox<String> nacionalidad_cliente;
     private javax.swing.JComboBox<String> nacionalidad_empleado;
     private javax.swing.JComboBox<String> nacionalidad_jefe;
@@ -1199,5 +1245,7 @@ public class Principal extends javax.swing.JFrame {
     int clientes_atendidos;
     double ganacias;
     ArrayList lista = new ArrayList();
-
+DefaultMutableTreeNode nodo_selecionado;
+Persona persona_seleccionado;
+Familiares familiar_seleccionado;
 }
