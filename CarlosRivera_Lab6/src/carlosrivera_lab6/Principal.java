@@ -129,13 +129,13 @@ public class Principal extends javax.swing.JFrame {
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jSpinner4 = new javax.swing.JSpinner();
-        jTextField7 = new javax.swing.JTextField();
-        jComboBox4 = new javax.swing.JComboBox<>();
-        jTextField11 = new javax.swing.JTextField();
-        jButton13 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
+        nombre_familiar = new javax.swing.JTextField();
+        edad_familiar = new javax.swing.JSpinner();
+        id_familiar = new javax.swing.JTextField();
+        nacionalidad_familiar = new javax.swing.JComboBox<>();
+        lugar_familiar = new javax.swing.JTextField();
+        bt_color_familiar = new javax.swing.JButton();
+        agregar_familiar = new javax.swing.JButton();
         menu_popup = new javax.swing.JPopupMenu();
         Modificar = new javax.swing.JMenuItem();
         eliminar = new javax.swing.JDialog();
@@ -658,9 +658,20 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel28.setText("Color de Piel");
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hondureño", "Mexicano", "Estado Unidense", "Italiano" }));
+        nacionalidad_familiar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hondureño", "Mexicano", "Estado Unidense", "Italiano" }));
 
-        jButton14.setText("Agregar");
+        bt_color_familiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_color_familiarActionPerformed(evt);
+            }
+        });
+
+        agregar_familiar.setText("Agregar");
+        agregar_familiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregar_familiarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout agregar_familiaresLayout = new javax.swing.GroupLayout(agregar_familiares.getContentPane());
         agregar_familiares.getContentPane().setLayout(agregar_familiaresLayout);
@@ -681,16 +692,16 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(jLabel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(38, 38, 38)
                 .addGroup(agregar_familiaresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jSpinner4)
-                    .addComponent(jTextField7)
-                    .addComponent(jTextField3)
-                    .addComponent(jComboBox4, 0, 150, Short.MAX_VALUE)
-                    .addComponent(jTextField11)
-                    .addComponent(jButton13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(edad_familiar)
+                    .addComponent(id_familiar)
+                    .addComponent(nombre_familiar)
+                    .addComponent(nacionalidad_familiar, 0, 150, Short.MAX_VALUE)
+                    .addComponent(lugar_familiar)
+                    .addComponent(bt_color_familiar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(125, 125, 125))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, agregar_familiaresLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton14)
+                .addComponent(agregar_familiar)
                 .addGap(180, 180, 180))
         );
         agregar_familiaresLayout.setVerticalGroup(
@@ -699,7 +710,7 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addGroup(agregar_familiaresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nombre_familiar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(agregar_familiaresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(agregar_familiaresLayout.createSequentialGroup()
                         .addGap(14, 14, 14)
@@ -708,25 +719,25 @@ public class Principal extends javax.swing.JFrame {
                         .addComponent(jLabel23))
                     .addGroup(agregar_familiaresLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(edad_familiar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(14, 14, 14)
                 .addGroup(agregar_familiaresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(id_familiar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel25))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(agregar_familiaresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nacionalidad_familiar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel26))
                 .addGap(18, 18, 18)
                 .addGroup(agregar_familiaresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel27)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lugar_familiar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(agregar_familiaresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel28)
-                    .addComponent(jButton13))
+                    .addComponent(bt_color_familiar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                .addComponent(jButton14)
+                .addComponent(agregar_familiar)
                 .addGap(35, 35, 35))
         );
 
@@ -1251,6 +1262,7 @@ public class Principal extends javax.swing.JFrame {
         AdminFamiliar af = new AdminFamiliar("./familiares.txt");
         if (af.getArchivo().exists()) {
             af.getArchivo();
+            af.setFamiliares(new Familiares(edad, id, nacionalidad, lugar_nacimiento, nombre, color_piel, new Familiares()));
         }
         af.escribriArchivo();
     }//GEN-LAST:event_guardar_familiaresActionPerformed
@@ -1351,8 +1363,7 @@ public class Principal extends javax.swing.JFrame {
                 File fichero = jfc.getSelectedFile();
                 fw = new FileWriter(fichero);
                 bw = new BufferedWriter(fw);
-                String text = null;
-                bw.write(text);
+
                 bw.flush();
                 JOptionPane.showMessageDialog(this, "Archivo creado ");
             } catch (Exception e) {
@@ -1396,6 +1407,36 @@ public class Principal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_agregar_baleadasActionPerformed
 
+    private void agregar_familiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregar_familiarActionPerformed
+        // TODO add your handling code here:
+        try {
+            nombre = nombre_familiar.getText();
+            edad = (Integer) edad_familiar.getValue();
+            id = Integer.parseInt(id_familiar.getText());
+            nacionalidad = (String) nacionalidad_familiar.getSelectedItem();
+            lugar_nacimiento = lugar_familiar.getText();
+            color_piel = bt_color_familiar.getBackground();
+            lista.add(new Familiares(edad, id, nacionalidad, lugar_nacimiento, nombre, color_piel, new Familiares()));
+
+            JOptionPane.showMessageDialog(this, "El familiar fue agregado ");
+            DefaultTreeModel m = (DefaultTreeModel) arbol_general.getModel();
+            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) m.getRoot();
+            DefaultMutableTreeNode nodo_persona;
+            nodo_persona = new DefaultMutableTreeNode(new Familiares(edad, id,
+                    nacionalidad, lugar_nacimiento, nombre, color_piel, new Familiares()));
+            raiz.add(nodo_persona);
+            m.reload();
+
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_agregar_familiarActionPerformed
+
+    private void bt_color_familiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_color_familiarActionPerformed
+        // TODO add your handling code here:    
+        bt_color_familiar.setBackground(JColorChooser.showDialog(this, "Seleccione un color", Color.yellow));
+
+    }//GEN-LAST:event_bt_color_familiarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1437,6 +1478,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem Modificar;
     private javax.swing.JButton agregar_baleadas;
     private javax.swing.JButton agregar_cliente;
+    private javax.swing.JButton agregar_familiar;
     private javax.swing.JDialog agregar_familiares;
     private javax.swing.JButton agregar_gato;
     private javax.swing.JTextField altura_gato;
@@ -1446,6 +1488,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton bt_agregar_jefe;
     private javax.swing.JButton bt_color_cliente;
     private javax.swing.JButton bt_color_empleado;
+    private javax.swing.JButton bt_color_familiar;
     private javax.swing.JButton bt_color_jefe;
     private javax.swing.JComboBox<String> cb_baleadas;
     private javax.swing.JComboBox<String> cb_empleados;
@@ -1453,6 +1496,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField dinero_cliente;
     private javax.swing.JSpinner edad_cliente;
     private javax.swing.JSpinner edad_empleado;
+    private javax.swing.JSpinner edad_familiar;
     private javax.swing.JSpinner edad_jefe;
     private javax.swing.JDialog eliminar;
     private javax.swing.JMenuItem eliminar_tabla;
@@ -1468,17 +1512,15 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem guardar_ordenes;
     private javax.swing.JTextField id_cliente;
     private javax.swing.JTextField id_empleado;
+    private javax.swing.JTextField id_familiar;
     private javax.swing.JTextField id_jefe;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1538,24 +1580,23 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSpinner jSpinner4;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField7;
     private javax.swing.JTree jTree1;
     private javax.swing.JTree jTree2;
     private javax.swing.JTextField lugar_cliente;
     private javax.swing.JTextField lugar_empleado;
+    private javax.swing.JTextField lugar_familiar;
     private javax.swing.JTextField lugar_jefe;
     private javax.swing.JPopupMenu menu_popup;
     private javax.swing.JPopupMenu menu_popup2;
     private javax.swing.JComboBox<String> nacionalidad_cliente;
     private javax.swing.JComboBox<String> nacionalidad_empleado;
+    private javax.swing.JComboBox<String> nacionalidad_familiar;
     private javax.swing.JComboBox<String> nacionalidad_jefe;
     private javax.swing.JTextField nombre_cliente;
     private javax.swing.JTextField nombre_empleado;
+    private javax.swing.JTextField nombre_familiar;
     private javax.swing.JTextField nombre_jefe;
     private javax.swing.JDialog ordenes;
     private javax.swing.JTextField peso_gato;
