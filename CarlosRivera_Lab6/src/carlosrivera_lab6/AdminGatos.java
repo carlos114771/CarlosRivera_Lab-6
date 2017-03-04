@@ -44,6 +44,9 @@ public class AdminGatos {
     public String toString() {
         return "listaGato" + listagato;
     }
+    public void setGato(Gato g){
+        this.listagato.add(g);
+    }
 
     public void escribirArchivo() {
         FileWriter fw = null;
