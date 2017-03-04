@@ -8,6 +8,9 @@ package carlosrivera_lab6;
 import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JColorChooser;
+import javax.swing.JOptionPane;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
@@ -103,7 +106,7 @@ public class Principal extends javax.swing.JFrame {
         lugar_jefe = new javax.swing.JTextField();
         bt_color_jefe = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTree3 = new javax.swing.JTree();
+        arbol_empleado = new javax.swing.JTree();
         bt_agregar_jefe = new javax.swing.JButton();
         edad_jefe = new javax.swing.JSpinner();
         jLabel36 = new javax.swing.JLabel();
@@ -136,7 +139,14 @@ public class Principal extends javax.swing.JFrame {
         jButton12 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        guardar_empleado = new javax.swing.JMenuItem();
+        guardar_cliente = new javax.swing.JMenuItem();
+        guardar_jefes = new javax.swing.JMenuItem();
+        guardar_familiares = new javax.swing.JMenuItem();
+        guardar_gatos = new javax.swing.JMenuItem();
+        guardar_baleadas = new javax.swing.JMenuItem();
+        guardar_ordenes = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
@@ -466,8 +476,8 @@ public class Principal extends javax.swing.JFrame {
         });
 
         treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Raiz");
-        jTree3.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
-        jScrollPane4.setViewportView(jTree3);
+        arbol_empleado.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane4.setViewportView(arbol_empleado);
 
         bt_agregar_jefe.setText("Agregar");
         bt_agregar_jefe.addActionListener(new java.awt.event.ActionListener() {
@@ -712,8 +722,65 @@ public class Principal extends javax.swing.JFrame {
 
         jMenu1.setText("Opciones");
 
-        jMenuItem1.setText("Guradar");
-        jMenu1.add(jMenuItem1);
+        jMenu2.setText("Guardar");
+
+        guardar_empleado.setText("Guardar Empleados");
+        guardar_empleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardar_empleadoActionPerformed(evt);
+            }
+        });
+        jMenu2.add(guardar_empleado);
+
+        guardar_cliente.setText("Guardar Clientes");
+        guardar_cliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardar_clienteActionPerformed(evt);
+            }
+        });
+        jMenu2.add(guardar_cliente);
+
+        guardar_jefes.setText("Guardar Jefes");
+        guardar_jefes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardar_jefesActionPerformed(evt);
+            }
+        });
+        jMenu2.add(guardar_jefes);
+
+        guardar_familiares.setText("Guardar Familiares");
+        guardar_familiares.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardar_familiaresActionPerformed(evt);
+            }
+        });
+        jMenu2.add(guardar_familiares);
+
+        guardar_gatos.setText("Guardar Gatos");
+        guardar_gatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardar_gatosActionPerformed(evt);
+            }
+        });
+        jMenu2.add(guardar_gatos);
+
+        guardar_baleadas.setText("Guardar Baleadas");
+        guardar_baleadas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardar_baleadasActionPerformed(evt);
+            }
+        });
+        jMenu2.add(guardar_baleadas);
+
+        guardar_ordenes.setText("Guardar Ordenes");
+        guardar_ordenes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardar_ordenesActionPerformed(evt);
+            }
+        });
+        jMenu2.add(guardar_ordenes);
+
+        jMenu1.add(jMenu2);
 
         jMenuItem2.setText("Guardar Como");
         jMenu1.add(jMenuItem2);
@@ -814,6 +881,15 @@ public class Principal extends javax.swing.JFrame {
             lista.add(new Empleado(seccion_trabajo, hora_entrado, hora_salida,
                     sueldo, estado, edad, id, nacionalidad, lugar_nacimiento,
                     nombre, color_piel, null));
+            JOptionPane.showMessageDialog(this, "El empleado fue agregado");
+            DefaultTreeModel m = (DefaultTreeModel) arbol_general.getModel();
+            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) m.getRoot();
+            DefaultMutableTreeNode nodo_persona;
+            nodo_persona = new DefaultMutableTreeNode(new Empleado(
+                    seccion_trabajo, hora_entrado, hora_salida, sueldo, estado,
+                    edad, id, nacionalidad, lugar_nacimiento, nombre, color_piel, null));
+            raiz.add(nodo_persona);
+            m.reload();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -836,8 +912,17 @@ public class Principal extends javax.swing.JFrame {
             color_piel = bt_color_cliente.getBackground();
             ticket = Integer.parseInt(ticket_cliente.getText());
             dinero = Double.parseDouble(dinero_cliente.getText());
-            lista.add(new Cliente(ticket, dinero, edad, id, nacionalidad, 
+            lista.add(new Cliente(ticket, dinero, edad, id, nacionalidad,
                     lugar_nacimiento, nombre, color_piel, null));
+            JOptionPane.showMessageDialog(this, "El cliente fue agregado");
+            DefaultTreeModel m = (DefaultTreeModel) arbol_general.getModel();
+            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) m.getRoot();
+            DefaultMutableTreeNode nodo_persona;
+            nodo_persona = new DefaultMutableTreeNode(new Cliente(
+                    ticket, dinero, edad, id, nacionalidad,
+                    lugar_nacimiento, nombre, color_piel, null));
+            raiz.add(nodo_persona);
+            m.reload();
         } catch (Exception e) {
         }
     }//GEN-LAST:event_agregar_clienteActionPerformed
@@ -865,13 +950,90 @@ public class Principal extends javax.swing.JFrame {
             seccion_trabajo = (String) seccion_jefe.getSelectedItem();
             clientes_atendidos = Integer.parseInt(cliente_jefe.getText());
             ganacias = Double.parseDouble(ganancias_jefe.getText());
-            lista.add(new Jefes(seccion_trabajo, clientes_atendidos, ganacias, 
+            lista.add(new Jefes(seccion_trabajo, clientes_atendidos, ganacias,
                     edad, id, nacionalidad, lugar_nacimiento, nombre, color_piel, null));
+            JOptionPane.showMessageDialog(this, "El jefe fue agregado ");
+            DefaultTreeModel m = (DefaultTreeModel) arbol_general.getModel();
+            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) m.getRoot();
+            DefaultMutableTreeNode nodo_persona;
+            nodo_persona = new DefaultMutableTreeNode(new Jefes(seccion_trabajo,
+                    clientes_atendidos, ganacias, edad, id, nacionalidad,
+                    lugar_nacimiento, nombre, color_piel, null));
+            raiz.add(nodo_persona);
+            m.reload();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
 
     }//GEN-LAST:event_bt_agregar_jefeActionPerformed
+
+    private void guardar_empleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardar_empleadoActionPerformed
+        // TODO add your handling code here:
+        AdminEmpleado ae = new AdminEmpleado("./empleados.txt");
+        if (ae.getArchivo().exists()) {
+            ae.cargarArchivo();
+            ae.getListempleado();
+        }
+        ae.escribirArchivo();
+
+    }//GEN-LAST:event_guardar_empleadoActionPerformed
+
+    private void guardar_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardar_clienteActionPerformed
+        // TODO add your handling code here:
+        AdminClientes ac = new AdminClientes("./clientes.txt");
+        if (ac.getArchivo().exists()) {
+            ac.cargarArchivo();
+            ac.getListaCliente();
+        }
+        ac.escribirArchivo();
+    }//GEN-LAST:event_guardar_clienteActionPerformed
+
+    private void guardar_jefesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardar_jefesActionPerformed
+        // TODO add your handling code here:
+        AdminJefe aj = new AdminJefe("./jefe.txt");
+        if (aj.getArchivo().exists()) {
+            aj.getArchivo();
+        }
+        aj.escribirArchivo();
+    }//GEN-LAST:event_guardar_jefesActionPerformed
+
+    private void guardar_familiaresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardar_familiaresActionPerformed
+        // TODO add your handling code here:
+        AdminFamiliar af = new AdminFamiliar("./familiares.txt");
+        if (af.getArchivo().exists()) {
+            af.getArchivo();
+        }
+        af.escribriArchivo();
+    }//GEN-LAST:event_guardar_familiaresActionPerformed
+
+    private void guardar_gatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardar_gatosActionPerformed
+        // TODO add your handling code here:
+        AdminGatos ag = new AdminGatos("./gatos.txt");
+        if (ag.getArchivo().exists()) {
+            ag.cargarArchivo();
+        }
+        ag.escribirArchivo();
+    }//GEN-LAST:event_guardar_gatosActionPerformed
+
+    private void guardar_baleadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardar_baleadasActionPerformed
+        // TODO add your handling code here:
+        AdminBaleadas ab = new AdminBaleadas("./baleadas.txt");
+        if (ab.getArchivo().exists()) {
+            ab.cargarArchivo();
+        }
+        ab.escribirArchivo();
+    }//GEN-LAST:event_guardar_baleadasActionPerformed
+
+    private void guardar_ordenesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardar_ordenesActionPerformed
+        // TODO add your handling code here:
+        AdminOrdenes ao = new AdminOrdenes("./ordenes.txt");
+
+        if (ao.getArchivo().exists()) {
+            ao.cargarArchivo();
+        }
+        ao.escribirArchivo();
+    }//GEN-LAST:event_guardar_ordenesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -913,6 +1075,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JDialog Arbol;
     private javax.swing.JButton agregar_cliente;
     private javax.swing.JDialog agregar_familiares;
+    private javax.swing.JTree arbol_empleado;
     private javax.swing.JTree arbol_general;
     private javax.swing.JButton bt_agregar_empleado;
     private javax.swing.JButton bt_agregar_jefe;
@@ -927,6 +1090,13 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField entrada_empleado;
     private javax.swing.JComboBox<String> estado_empleado;
     private javax.swing.JTextField ganancias_jefe;
+    private javax.swing.JMenuItem guardar_baleadas;
+    private javax.swing.JMenuItem guardar_cliente;
+    private javax.swing.JMenuItem guardar_empleado;
+    private javax.swing.JMenuItem guardar_familiares;
+    private javax.swing.JMenuItem guardar_gatos;
+    private javax.swing.JMenuItem guardar_jefes;
+    private javax.swing.JMenuItem guardar_ordenes;
     private javax.swing.JTextField id_cliente;
     private javax.swing.JTextField id_empleado;
     private javax.swing.JTextField id_jefe;
@@ -978,8 +1148,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
@@ -998,7 +1168,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTree jTree1;
     private javax.swing.JTree jTree2;
-    private javax.swing.JTree jTree3;
     private javax.swing.JTextField lugar_cliente;
     private javax.swing.JTextField lugar_empleado;
     private javax.swing.JTextField lugar_jefe;

@@ -40,7 +40,8 @@ public class Ordenes {
 
     @Override
     public String toString() {
-        return "Ordenes{" + "cantidad=" + cantidad + ", empleado=" + empleado + '}';
+        return super.toString();
+//        return "Ordenes{" + "cantidad=" + cantidad + ", empleado=" + empleado + '}';
     }
 
 }
