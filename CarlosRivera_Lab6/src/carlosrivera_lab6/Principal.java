@@ -6,8 +6,12 @@
 package carlosrivera_lab6;
 
 import java.awt.Color;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import javax.swing.JColorChooser;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -852,6 +856,11 @@ public class Principal extends javax.swing.JFrame {
         jMenu1.add(jMenu2);
 
         jMenuItem2.setText("Guardar Como");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem2);
 
         jMenuItem3.setText("About");
@@ -874,45 +883,46 @@ public class Principal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(62, 62, 62)
+                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton2)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
-                            .addComponent(jButton9)
-                            .addComponent(jButton11))
-                        .addGap(35, 35, 35)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jButton9)
+                        .addGap(96, 96, 96)
+                        .addComponent(jButton10))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jButton11)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton12)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(jButton2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton8))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton10)
-                                    .addComponent(jButton8))
-                                .addContainerGap(67, Short.MAX_VALUE))))))
+                                .addComponent(jButton1)
+                                .addGap(61, 61, 61)
+                                .addComponent(jButton12)))))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(63, 63, 63)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jButton8))
-                .addGap(45, 45, 45)
+                    .addComponent(jButton12))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(jButton2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addComponent(jButton8)))
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton9)
                     .addComponent(jButton10))
-                .addGap(56, 56, 56)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton11)
-                    .addComponent(jButton12))
-                .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addGap(63, 63, 63)
+                .addComponent(jButton11)
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         pack();
@@ -1066,7 +1076,7 @@ public class Principal extends javax.swing.JFrame {
         AdminEmpleado ae = new AdminEmpleado("./empleados.txt");
         if (ae.getArchivo().exists()) {
             ae.cargarArchivo();
-            ae.getListempleado();
+            ae.setEmpleado(new Empleado(seccion_trabajo, hora_entrado, hora_salida, sueldo, estado, edad, id, nacionalidad, lugar_nacimiento, nombre, color_piel, null));
         }
         ae.escribirArchivo();
 
@@ -1148,13 +1158,13 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         nombre = JOptionPane.showInputDialog("Ingrese el nombre ");
         persona_seleccionado.setNombre(nombre);
-        familiar_seleccionado.setNombre(nombre);
+//        familiar_seleccionado.setNombre(nombre);
         edad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la edad "));
         persona_seleccionado.setEdad(edad);
-        familiar_seleccionado.setEdad(edad);
+      //  familiar_seleccionado.setEdad(edad);
         id = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la id "));
         persona_seleccionado.getId();
-        familiar_seleccionado.getId();
+     //   familiar_seleccionado.getId();
     }//GEN-LAST:event_ModificarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -1181,6 +1191,32 @@ public class Principal extends javax.swing.JFrame {
             tabla_general.setModel(modelo);
         }
     }//GEN-LAST:event_eliminar_tablaActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        JFileChooser jfc = new JFileChooser();
+        int seleccion = jfc.showSaveDialog(this);
+        FileWriter fw = null;
+        BufferedWriter bw = null;
+        if (seleccion== JFileChooser.APPROVE_OPTION) {
+            try {
+                File fichero =jfc.getSelectedFile();
+                fw = new FileWriter(fichero);
+                bw = new BufferedWriter(fw);
+                String text =null;
+                bw.write(text);
+                bw.flush();
+                JOptionPane.showMessageDialog(this, "Archivo creado ");
+            } catch (Exception e) {
+            }finally{
+                try {
+                    bw.close();
+                    fw.close();
+                } catch (Exception e) {
+                }
+            }
+        }
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments

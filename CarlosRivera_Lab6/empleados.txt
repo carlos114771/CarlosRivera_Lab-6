@@ -1,0 +1,1 @@
+Cocina;ascas;sdas;432.0;Ocupado;0;Hondureño;sdaad;carlos;DerivedColor(color=214,217,223 parent=control offsets=0.0,0.0,0.0,0 pColor=214,217,223;null;1234;Cocina;;
