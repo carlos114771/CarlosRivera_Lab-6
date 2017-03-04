@@ -966,6 +966,11 @@ public class Principal extends javax.swing.JFrame {
                     edad, id, nacionalidad, lugar_nacimiento, nombre, color_piel, null));
             raiz.add(nodo_persona);
             m.reload();
+
+            DefaultTableModel modelo = (DefaultTableModel) tabla_general.getModel();
+            Object[] newrow = {nombre_empleado.getText(), edad_empleado.getValue(), id_empleado.getText(), nacionalidad_empleado.getSelectedItem()};
+            modelo.addRow(newrow);
+            tabla_general.setModel(modelo);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -999,6 +1004,11 @@ public class Principal extends javax.swing.JFrame {
                     lugar_nacimiento, nombre, color_piel, null));
             raiz.add(nodo_persona);
             m.reload();
+
+            DefaultTableModel modelo = (DefaultTableModel) tabla_general.getModel();
+            Object[] newrow = {nombre_cliente.getText(), edad_cliente.getValue(), id_cliente.getText(), nacionalidad_cliente.getSelectedItem()};
+            modelo.addRow(newrow);
+            tabla_general.setModel(modelo);
         } catch (Exception e) {
         }
     }//GEN-LAST:event_agregar_clienteActionPerformed
@@ -1037,6 +1047,13 @@ public class Principal extends javax.swing.JFrame {
                     lugar_nacimiento, nombre, color_piel, null));
             raiz.add(nodo_persona);
             m.reload();
+            
+            
+            
+             DefaultTableModel modelo = (DefaultTableModel) tabla_general.getModel();
+            Object[] newrow = {nombre_jefe.getText(), edad_empleado.getValue(), id_empleado.getText(), nacionalidad_empleado.getSelectedItem()};
+            modelo.addRow(newrow);
+            tabla_general.setModel(modelo);
 
         } catch (Exception e) {
             e.printStackTrace();
