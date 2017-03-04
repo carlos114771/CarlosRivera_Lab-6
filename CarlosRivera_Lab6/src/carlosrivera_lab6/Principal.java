@@ -160,7 +160,7 @@ public class Principal extends javax.swing.JFrame {
         peso_gato = new javax.swing.JTextField();
         agregar_gato = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        bt_agregar_familiar = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
@@ -176,7 +176,13 @@ public class Principal extends javax.swing.JFrame {
         guardar_gatos = new javax.swing.JMenuItem();
         guardar_baleadas = new javax.swing.JMenuItem();
         guardar_ordenes = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        gc_empleados = new javax.swing.JMenuItem();
+        gc_clientes = new javax.swing.JMenuItem();
+        gc_jefes = new javax.swing.JMenuItem();
+        gc_familiares = new javax.swing.JMenuItem();
+        gc_gatos = new javax.swing.JMenuItem();
+        gc_baleadas = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
 
@@ -921,7 +927,12 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jButton8.setText("Agregar Familiar");
+        bt_agregar_familiar.setText("Agregar Familiar");
+        bt_agregar_familiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_agregar_familiarActionPerformed(evt);
+            }
+        });
 
         jButton9.setText("Ventas");
 
@@ -1010,13 +1021,57 @@ public class Principal extends javax.swing.JFrame {
 
         jMenu1.add(jMenu2);
 
-        jMenuItem2.setText("Guardar Como");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        jMenu3.setText("Guardar Como");
+
+        gc_empleados.setText("Empleado");
+        gc_empleados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                gc_empleadosActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
+        jMenu3.add(gc_empleados);
+
+        gc_clientes.setText("Clientes");
+        gc_clientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gc_clientesActionPerformed(evt);
+            }
+        });
+        jMenu3.add(gc_clientes);
+
+        gc_jefes.setText("Jefes");
+        gc_jefes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gc_jefesActionPerformed(evt);
+            }
+        });
+        jMenu3.add(gc_jefes);
+
+        gc_familiares.setText("Familiares");
+        gc_familiares.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gc_familiaresActionPerformed(evt);
+            }
+        });
+        jMenu3.add(gc_familiares);
+
+        gc_gatos.setText("Gatos");
+        gc_gatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gc_gatosActionPerformed(evt);
+            }
+        });
+        jMenu3.add(gc_gatos);
+
+        gc_baleadas.setText("Baleadas");
+        gc_baleadas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gc_baleadasActionPerformed(evt);
+            }
+        });
+        jMenu3.add(gc_baleadas);
+
+        jMenu1.add(jMenu3);
 
         jMenuItem3.setText("About");
         jMenu1.add(jMenuItem3);
@@ -1037,46 +1092,36 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(152, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton9)
-                        .addGap(96, 96, 96)
-                        .addComponent(jButton10))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jButton2)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton8))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jButton1)
-                            .addGap(61, 61, 61)
-                            .addComponent(jButton12)))
-                    .addComponent(jButton11))
-                .addContainerGap(45, Short.MAX_VALUE))
+                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton11, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton12, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton9, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton10, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(bt_agregar_familiar, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton12))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(jButton2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addComponent(jButton8)))
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton9)
-                    .addComponent(jButton10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(bt_agregar_familiar)
+                .addGap(22, 22, 22)
+                .addComponent(jButton10)
+                .addGap(18, 18, 18)
+                .addComponent(jButton12)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addGap(18, 18, 18)
+                .addComponent(jButton9)
+                .addGap(18, 18, 18)
                 .addComponent(jButton11)
-                .addGap(38, 38, 38))
+                .addGap(18, 18, 18)
+                .addComponent(jButton2)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
@@ -1173,6 +1218,7 @@ public class Principal extends javax.swing.JFrame {
             Object[] newrow = {nombre_cliente.getText(), edad_cliente.getValue(), id_cliente.getText(), nacionalidad_cliente.getSelectedItem()};
             modelo.addRow(newrow);
             tabla_general.setModel(modelo);
+
         } catch (Exception e) {
         }
     }//GEN-LAST:event_agregar_clienteActionPerformed
@@ -1247,7 +1293,8 @@ public class Principal extends javax.swing.JFrame {
             ac.cargarArchivo();
         }
         ac.setClientes(new Cliente(Integer.parseInt(ticket_cliente.getText()),
-                Double.parseDouble(dinero_cliente.getText()), (Integer) edad_cliente.getValue(), Integer.parseInt(id_cliente.getText()),
+                Double.parseDouble(dinero_cliente.getText()), (Integer) edad_cliente.getValue(),
+                Integer.parseInt(id_cliente.getText()),
                 (String) nacionalidad_cliente.getSelectedItem(),
                 lugar_cliente.getText(), nombre_cliente.getText(), bt_color_cliente.getBackground(), null));
 
@@ -1370,31 +1417,6 @@ public class Principal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_eliminar_tablaActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
-        JFileChooser jfc = new JFileChooser();
-        int seleccion = jfc.showSaveDialog(this);
-        FileWriter fw = null;
-        BufferedWriter bw = null;
-        if (seleccion == JFileChooser.APPROVE_OPTION) {
-            try {
-                File fichero = jfc.getSelectedFile();
-                fw = new FileWriter(fichero);
-                bw = new BufferedWriter(fw);
-
-                bw.flush();
-                JOptionPane.showMessageDialog(this, "Archivo creado ");
-            } catch (Exception e) {
-            } finally {
-                try {
-                    bw.close();
-                    fw.close();
-                } catch (Exception e) {
-                }
-            }
-        }
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
-
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
         this.ordenes.setModal(true);
@@ -1455,6 +1477,192 @@ public class Principal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_bt_color_familiarActionPerformed
 
+    private void bt_agregar_familiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_agregar_familiarActionPerformed
+        // TODO add your handling code here:
+        this.agregar_familiares.setModal(true);
+        this.agregar_familiares.pack();
+        this.agregar_familiares.setLocationRelativeTo(this);
+        this.agregar_familiares.setVisible(true);
+
+    }//GEN-LAST:event_bt_agregar_familiarActionPerformed
+
+    private void gc_empleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gc_empleadosActionPerformed
+        // TODO add your handling code here:
+        JFileChooser jfc = new JFileChooser();
+        int seleccionado = jfc.showSaveDialog(this);
+        FileWriter fw = null;
+        BufferedWriter bw = null;
+        if (seleccionado == JFileChooser.APPROVE_OPTION) {
+            try {
+                File fichero = jfc.getSelectedFile();
+                fw = new FileWriter(fichero);
+                bw = new BufferedWriter(fw);
+                bw.write(nombre_empleado.getText() + ";");
+                bw.write((Integer) edad_empleado.getValue() + ";");
+                bw.write(Integer.parseInt(id_empleado.getText()) + ";");
+                bw.write((String) nacionalidad_empleado.getSelectedItem() + ";");
+                bw.write(lugar_empleado.getText() + ";");
+                bw.write(bt_color_empleado.getBackground() + ";");
+                bw.write((String) seccion_empleado.getSelectedItem());
+                bw.write(entrada_empleado.getText() + ";");
+                bw.write(salida_empleado.getText() + ";");
+                bw.write((String) estado_empleado.getSelectedItem());
+                bw.write(Double.parseDouble(sueldo_empleado.getText()) + ";");
+                bw.flush();
+            } catch (Exception e) {
+            } finally {
+                try {
+                    bw.close();
+                    fw.close();
+                } catch (Exception e) {
+                }
+            }
+        }
+    }//GEN-LAST:event_gc_empleadosActionPerformed
+
+    private void gc_clientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gc_clientesActionPerformed
+        // TODO add your handling code here:
+        JFileChooser jfc = new JFileChooser();
+        int seleccionado = jfc.showSaveDialog(this);
+        FileWriter fw = null;
+        BufferedWriter bw = null;
+        if (seleccionado == JFileChooser.APPROVE_OPTION) {
+            try {
+                File fichero = jfc.getSelectedFile();
+                fw = new FileWriter(fichero);
+                bw = new BufferedWriter(fw);
+                bw.write(nombre_cliente.getText() + ";");
+                bw.write((Integer) edad_cliente.getValue() + ";");
+                bw.write(Integer.parseInt(id_cliente.getText()) + ";");
+                bw.write((String) nacionalidad_cliente.getSelectedItem() + ";");
+                bw.write(lugar_cliente.getText() + ";");
+                bw.write(bt_color_cliente.getBackground() + ";");
+                bw.write(Integer.parseInt(ticket_cliente.getText()) + ";");
+                bw.write(Double.parseDouble(dinero_cliente.getText()) + ";");
+                bw.flush();
+            } catch (Exception e) {
+            } finally {
+                try {
+                    bw.close();
+                    fw.close();
+                } catch (Exception e) {
+                }
+            }
+        }
+    }//GEN-LAST:event_gc_clientesActionPerformed
+
+    private void gc_jefesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gc_jefesActionPerformed
+        // TODO add your handling code here:
+        JFileChooser jfc = new JFileChooser();
+        int seleccionado = jfc.showSaveDialog(this);
+        FileWriter fw = null;
+        BufferedWriter bw = null;
+        if (seleccionado == JFileChooser.APPROVE_OPTION) {
+            try {
+                File fichero = jfc.getSelectedFile();
+                fw = new FileWriter(fichero);
+                bw = new BufferedWriter(fw);
+                bw.write(nombre_jefe.getText() + ";");
+                bw.write((Integer) edad_jefe.getValue() + ";");
+                bw.write(Integer.parseInt(id_jefe.getText()) + ";");
+                bw.write((String) nacionalidad_jefe.getSelectedItem() + ";");
+                bw.write(lugar_jefe.getText() + ";");
+                bw.write(bt_color_jefe.getBackground() + ";");
+                bw.write(seccion_jefe.getSelectedItem() + ";");
+                bw.write(Integer.parseInt(cliente_jefe.getText()) + ";");
+                bw.write(Double.parseDouble(ganancias_jefe.getText()) + ";");
+                bw.flush();
+            } catch (Exception e) {
+            } finally {
+                try {
+                    bw.close();
+                    fw.close();
+                } catch (Exception e) {
+                }
+            }
+        }
+    }//GEN-LAST:event_gc_jefesActionPerformed
+
+    private void gc_familiaresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gc_familiaresActionPerformed
+        // TODO add your handling code here:
+        JFileChooser jfc = new JFileChooser();
+        int seleccionado = jfc.showSaveDialog(this);
+        FileWriter fw = null;
+        BufferedWriter bw = null;
+        if (seleccionado == JFileChooser.APPROVE_OPTION) {
+            try {
+                File fichero = jfc.getSelectedFile();
+                fw = new FileWriter(fichero);
+                bw = new BufferedWriter(fw);
+                bw.write(nombre_familiar.getText() + ";");
+                bw.write((Integer) edad_familiar.getValue() + ";");
+                bw.write(Integer.parseInt(id_familiar.getText()) + ";");
+                bw.write((String) nacionalidad_familiar.getSelectedItem() + ";");
+                bw.write(lugar_familiar.getText() + ";");
+                bw.write(bt_color_familiar.getBackground() + ";");
+                bw.flush();
+            } catch (Exception e) {
+            } finally {
+                try {
+                    bw.close();
+                    fw.close();
+                } catch (Exception e) {
+                }
+            }
+        }
+    }//GEN-LAST:event_gc_familiaresActionPerformed
+
+    private void gc_gatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gc_gatosActionPerformed
+        // TODO add your handling code here:
+        JFileChooser jfc = new JFileChooser();
+        int seleccionado = jfc.showSaveDialog(this);
+        FileWriter fw = null;
+        BufferedWriter bw = null;
+        if (seleccionado == JFileChooser.APPROVE_OPTION) {
+            try {
+                File fichero = jfc.getSelectedFile();
+                fw = new FileWriter(fichero);
+                bw = new BufferedWriter(fw);
+                bw.write(Integer.parseInt(precio_gato.getText()) + ";");
+                bw.write(Double.parseDouble(altura_gato.getText()) + ";");
+                bw.write(Double.parseDouble(peso_gato.getText()) + ";");
+                bw.flush();
+            } catch (Exception e) {
+            } finally {
+                try {
+                    bw.close();
+                    fw.close();
+                } catch (Exception e) {
+                }
+            }
+        }
+    }//GEN-LAST:event_gc_gatosActionPerformed
+
+    private void gc_baleadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gc_baleadasActionPerformed
+        // TODO add your handling code here:
+        JFileChooser jfc = new JFileChooser();
+        int seleccionado = jfc.showSaveDialog(this);
+        FileWriter fw = null;
+        BufferedWriter bw = null;
+        if (seleccionado == JFileChooser.APPROVE_OPTION) {
+            try {
+                File fichero = jfc.getSelectedFile();
+                fw = new FileWriter(fichero);
+                bw = new BufferedWriter(fw);
+                bw.write(Integer.parseInt(precio_baleadas.getText()) + ";");
+
+                bw.flush();
+            } catch (Exception e) {
+            } finally {
+                try {
+                    bw.close();
+                    fw.close();
+                } catch (Exception e) {
+                }
+            }
+        }
+    }//GEN-LAST:event_gc_baleadasActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1503,6 +1711,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTree arbol_empleado;
     private javax.swing.JTree arbol_general;
     private javax.swing.JButton bt_agregar_empleado;
+    private javax.swing.JButton bt_agregar_familiar;
     private javax.swing.JButton bt_agregar_jefe;
     private javax.swing.JButton bt_color_cliente;
     private javax.swing.JButton bt_color_empleado;
@@ -1521,6 +1730,12 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField entrada_empleado;
     private javax.swing.JComboBox<String> estado_empleado;
     private javax.swing.JTextField ganancias_jefe;
+    private javax.swing.JMenuItem gc_baleadas;
+    private javax.swing.JMenuItem gc_clientes;
+    private javax.swing.JMenuItem gc_empleados;
+    private javax.swing.JMenuItem gc_familiares;
+    private javax.swing.JMenuItem gc_gatos;
+    private javax.swing.JMenuItem gc_jefes;
     private javax.swing.JMenuItem guardar_baleadas;
     private javax.swing.JMenuItem guardar_cliente;
     private javax.swing.JMenuItem guardar_empleado;
@@ -1537,7 +1752,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1583,8 +1797,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPanel jPanel1;
