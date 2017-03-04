@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JColorChooser;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 
@@ -133,12 +134,18 @@ public class Principal extends javax.swing.JFrame {
         jButton14 = new javax.swing.JButton();
         menu_popup = new javax.swing.JPopupMenu();
         Modificar = new javax.swing.JMenuItem();
+        eliminar = new javax.swing.JDialog();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tabla_general = new javax.swing.JTable();
+        menu_popup2 = new javax.swing.JPopupMenu();
+        eliminar_tabla = new javax.swing.JMenuItem();
         jButton1 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -711,6 +718,46 @@ public class Principal extends javax.swing.JFrame {
         });
         menu_popup.add(Modificar);
 
+        tabla_general.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre", "Edad", "Id", "Nacionalidad"
+            }
+        ));
+        tabla_general.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabla_generalMouseClicked(evt);
+            }
+        });
+        jScrollPane5.setViewportView(tabla_general);
+
+        javax.swing.GroupLayout eliminarLayout = new javax.swing.GroupLayout(eliminar.getContentPane());
+        eliminar.getContentPane().setLayout(eliminarLayout);
+        eliminarLayout.setHorizontalGroup(
+            eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(eliminarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        eliminarLayout.setVerticalGroup(
+            eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(eliminarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        eliminar_tabla.setText("jMenuItem1");
+        eliminar_tabla.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminar_tablaActionPerformed(evt);
+            }
+        });
+        menu_popup2.add(eliminar_tabla);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton1.setText("Agregar Persona");
@@ -732,6 +779,13 @@ public class Principal extends javax.swing.JFrame {
         jButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton12ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Eliminar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -822,19 +876,24 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(62, 62, 62)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
-                    .addComponent(jButton9)
-                    .addComponent(jButton11))
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton12)
+                        .addComponent(jButton2)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton10)
-                            .addComponent(jButton8))
-                        .addContainerGap(67, Short.MAX_VALUE))))
+                            .addComponent(jButton1)
+                            .addComponent(jButton9)
+                            .addComponent(jButton11))
+                        .addGap(35, 35, 35)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton12)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton10)
+                                    .addComponent(jButton8))
+                                .addContainerGap(67, Short.MAX_VALUE))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -851,7 +910,9 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton11)
                     .addComponent(jButton12))
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton2)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
@@ -1055,7 +1116,7 @@ public class Principal extends javax.swing.JFrame {
         if (evt.isMetaDown()) {
             int row = arbol_general.getClosestRowForLocation(evt.getX(), evt.getY());
             arbol_general.setSelectionRow(row);
-             Object v1 = arbol_general.getSelectionPath().getLastPathComponent();
+            Object v1 = arbol_general.getSelectionPath().getLastPathComponent();
             nodo_selecionado = (DefaultMutableTreeNode) v1;
             if (nodo_selecionado.getUserObject() instanceof Persona) {
                 persona_seleccionado = (Persona) nodo_selecionado.getUserObject();
@@ -1078,6 +1139,31 @@ public class Principal extends javax.swing.JFrame {
         persona_seleccionado.getId();
         familiar_seleccionado.getId();
     }//GEN-LAST:event_ModificarActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        this.eliminar.setModal(true);
+        this.eliminar.pack();
+        this.eliminar.setLocationRelativeTo(this);
+        this.eliminar.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void tabla_generalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_generalMouseClicked
+        // TODO add your handling code here:
+        if (evt.isMetaDown()) {
+            int pp = tabla_general.getSelectedRow();
+            menu_popup2.show(evt.getComponent(), evt.getX(), evt.getY());
+        }
+    }//GEN-LAST:event_tabla_generalMouseClicked
+
+    private void eliminar_tablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminar_tablaActionPerformed
+        // TODO add your handling code here:
+        if (tabla_general.getSelectedRow() >= 0) {
+            DefaultTableModel modelo = (DefaultTableModel) tabla_general.getModel();
+            lista.remove(tabla_general.getSelectedRow());
+            tabla_general.setModel(modelo);
+        }
+    }//GEN-LAST:event_eliminar_tablaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1132,6 +1218,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JSpinner edad_cliente;
     private javax.swing.JSpinner edad_empleado;
     private javax.swing.JSpinner edad_jefe;
+    private javax.swing.JDialog eliminar;
+    private javax.swing.JMenuItem eliminar_tabla;
     private javax.swing.JTextField entrada_empleado;
     private javax.swing.JComboBox<String> estado_empleado;
     private javax.swing.JTextField ganancias_jefe;
@@ -1151,6 +1239,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox4;
@@ -1205,6 +1294,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSpinner jSpinner4;
     private javax.swing.JTabbedPane jTabbedPane1;
@@ -1217,6 +1307,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField lugar_empleado;
     private javax.swing.JTextField lugar_jefe;
     private javax.swing.JPopupMenu menu_popup;
+    private javax.swing.JPopupMenu menu_popup2;
     private javax.swing.JComboBox<String> nacionalidad_cliente;
     private javax.swing.JComboBox<String> nacionalidad_empleado;
     private javax.swing.JComboBox<String> nacionalidad_jefe;
@@ -1227,6 +1318,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> seccion_empleado;
     private javax.swing.JComboBox<String> seccion_jefe;
     private javax.swing.JTextField sueldo_empleado;
+    private javax.swing.JTable tabla_general;
     private javax.swing.JTextField ticket_cliente;
     // End of variables declaration//GEN-END:variables
     int edad;
@@ -1245,7 +1337,7 @@ public class Principal extends javax.swing.JFrame {
     int clientes_atendidos;
     double ganacias;
     ArrayList lista = new ArrayList();
-DefaultMutableTreeNode nodo_selecionado;
-Persona persona_seleccionado;
-Familiares familiar_seleccionado;
+    DefaultMutableTreeNode nodo_selecionado;
+    Persona persona_seleccionado;
+    Familiares familiar_seleccionado;
 }
